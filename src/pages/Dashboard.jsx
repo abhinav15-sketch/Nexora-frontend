@@ -22,9 +22,6 @@ function Dashboard() {
 		}
 		checkAuth();
 	}, [])
-	if (loading) {
-	  return <div></div>
-	}
 	
 	async function logoutUser(){
     await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/auth/logout",
@@ -39,10 +36,14 @@ function Dashboard() {
   
   async function createNewChat(){
     try{
-      const response = await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat")
+      const response = await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat", {}, {
+        withCredentials: true
+      })
       const currentChat = response.data.chat
+      const chatId = response.data.chatId
       setChats(prev => [currentChat, ...prev])
-      setSelectedChatId(response.data.chatId)
+      setSelectedChatId(chatId)
+      return chatId
     } catch (err){
       console.error(err)
       alert(err,"\nSomething went wrong")
@@ -50,28 +51,55 @@ function Dashboard() {
   }
   
   async function sendMessage(message){
-    if (!selectedChatId) {
-		  createNewChat()
-	  }
-    try{
-      const response = await axios.post(`https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat/${selectedChatId}/message`, {
-        prompt: message
-      })
-      const reply = response.data.reply
-      const setMessages(prev => [...prev, {
+    setMessages(prev => [...prev, {
         role: "user",
         text: message
-      },
+      }])
+    let chatId = selectedChatId
+    if (!selectedChatId) {
+		  chatId = await createNewChat()
+	  }
+    try{
+      const response = await axios.post(`https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat/${chatId}/message`, {
+        prompt: message
+      }, {
+        withCredentials: true
+      })
+      const reply = response.data.reply
+      setMessages(prev => [...prev,
       {
         role: "model",
         text: reply
-      })
+      }])
+      setChats(prev => prev.map(chat => {
+        if (chat._id === chatId) {
+          return {
+            ...chat,
+            title: response.data.title
+          }
+        } else {
+          return chat
+        }
+      }))
     } catch (err) {
       console.error(err)
       alert(err, "\nSomething went wrong")
     }
   }
+  
+  const [input, setInput] = useState("")
+  
+	async function handleSend() {
+	  if (!input.trim()) {
+	    return
+	  }
+	  await sendMessage(input)
+	  setInput("")
+	}
 	
+	if (loading) {
+	  return <div></div>
+  }
 	return (
 	  <div>
       <header>
@@ -85,13 +113,21 @@ function Dashboard() {
           </div>
         )}
       </header>
-      <div id="msg-area"></div>
+      <div id="msg-area">
+        {messages.map((msg, index) => {
+          if (msg.role === "user") {
+            return <div key={index} className="msg sent">{msg.text}</div>
+          } else {
+            return <div key={index} className="msg received">{msg.text}</div>
+          }
+        )}}
+      </div>
       <div>
-        <input type="text" id="msg-input"></input>
-        <button id="send-btn">↑</button>
+        <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
+        <button id="send-btn" onClick={handleSend}>↑</button>
       </div>
     </div>
 	)
 }
 
-export default Dashboard;
+export default Dashboard
