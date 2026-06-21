@@ -120,7 +120,7 @@ function Dashboard() {
           } else {
             return <div key={index} className="msg received">{msg.text}</div>
           }
-        )}}
+        })}
       </div>
       <div>
         <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
