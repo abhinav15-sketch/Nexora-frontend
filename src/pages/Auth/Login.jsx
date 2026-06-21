@@ -22,7 +22,7 @@ function Login(){
       navigate("/dashboard")
     }catch(err){
       console.log(err)
-      alert(err.response?.data?.message || "Something went wrong, Log in failed")
+      alert(err, "\nSomething went wrong, Log in failed")
     }
   }
   return(
