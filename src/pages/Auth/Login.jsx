@@ -17,7 +17,7 @@ function Login(){
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
-      const res = await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/auth/login", formData, { withCredentials: true })
+      const res = await axios.post("https://nexora-backend-yo2e.onrender.com/api/auth/login", formData, { withCredentials: true })
       alert(res.data.message || "Logged in successfully")
       navigate("/dashboard")
     }catch(err){

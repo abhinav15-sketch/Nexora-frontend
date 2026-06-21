@@ -19,7 +19,7 @@ function Register(){
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
-      const res = await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/auth/register", formData)
+      const res = await axios.post("https://nexora-backend-yo2e.onrender.com/api/auth/register", formData)
       alert(res.data.message || "Registered successfully")
       navigate("/dashboard")
     }catch(err){

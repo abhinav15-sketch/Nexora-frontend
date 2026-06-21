@@ -12,7 +12,7 @@ function Dashboard() {
 		const checkAuth = async () => {
 			try {
 				await axios.get(
-					"https://collector-tacking-roamer.ngrok-free.dev/api/auth/me",
+					"https://nexora-backend-yo2e.onrender.com/api/auth/me",
 					{ withCredentials: true }
 				)
 				setLoading(false)
@@ -24,7 +24,7 @@ function Dashboard() {
 	}, [])
 	
 	async function logoutUser(){
-    await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/auth/logout",
+    await axios.post("https://nexora-backend-yo2e.onrender.com/api/auth/logout",
     {},
   	{ withCredentials: true })
     navigate("/")
@@ -36,7 +36,7 @@ function Dashboard() {
   
   async function createNewChat(){
     try{
-      const response = await axios.post("https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat", {}, {
+      const response = await axios.post("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {}, {
         withCredentials: true
       })
       const currentChat = response.data.chat
@@ -60,7 +60,7 @@ function Dashboard() {
 		  chatId = await createNewChat()
 	  }
     try{
-      const response = await axios.post(`https://collector-tacking-roamer.ngrok-free.dev/api/ai/chat/${chatId}/message`, {
+      const response = await axios.post(`https://nexora-backend-yo2e.onrender.com/api/ai/chat/${chatId}/message`, {
         prompt: message
       }, {
         withCredentials: true
