@@ -1,0 +1,234 @@
+html, body, #root {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100dvh;
+	font-family: Arial;
+	background: #F5F5F5;
+}
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* LANDING PAGE */
+.container {
+	width: 100%;
+	min-height: 100dvh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #F5F5F5;
+	font-family: Arial, sans-serif;
+	padding: 12px;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: min(600px, 100%);
+	padding: clamp(16px, 4vw, 32px);
+	border-radius: 16px;
+	background: #FFFFFF;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+}
+.title {
+	color: black;
+	font-size: 32px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.subtitle {
+	color: #9ca3af;
+	margin-bottom: 25px;
+}
+.button-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 15px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.button-group .btn{
+  width: 100%;
+}
+.btn {
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: 0.2s ease;
+}
+.btn:active{
+  transform: scale(0.9);
+}
+.btn-outline {
+	background: transparent;
+	color: black;
+	border: 1px solid #4b5563;
+}
+.btn-primary {
+	background: royalblue;
+	color: white;
+}
+
+/* AUTH */
+.card.auth {
+	width: 100%;
+	padding: 20px;
+}
+.title.auth {
+	font-size: 30px;
+	font-weight: 500;
+}
+.card form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
+	padding: 20px 0;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 10px;
+	width: 100%;
+}
+.form-group label {
+	font-size: 15px;
+	color: black;
+	font-weight: 400;
+	flex-shrink: 0;
+	text-align: left;
+	width: auto;
+}
+.form-group input,
+.form-group select {
+	flex: 1;
+	min-width: 0;
+	padding: 10px;
+	border: 1px solid grey;
+	border-radius: 8px;
+}
+.form-group input:focus,
+.form-group select {
+	outline: none;
+	border-color: #a5b4fc;
+	box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.1);
+}
+.Q-prompt {
+	font-size: 13px;
+	color: #303030;
+	padding: 0;
+	margin: 0;
+}
+.Q-prompt a {
+	color: royalblue;
+	text-decoration: none;
+}
+
+/* DASHBOARD */
+#settings-btn {
+	position: fixed;
+	top: 8px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: #EDEDED;
+	font-size: 20px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+}
+header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid lightgrey;
+}
+.title.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  padding-bottom: 8px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.drop-down {
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #FFFFFF;
+  padding: 12px 6px;
+  border: solid darkgrey 1px;
+  border-radius: 15px;
+}
+.drop-down button {
+  border: none;
+  background-color: #FFFFFF;
+  font-size: 14px;
+}
+.drop-down button:active {
+  transform: scale(0.9);
+}
+#msg-area {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+#msg-input {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  width: 80%;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+}
+#msg-input:focus {
+  outline: none;
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.1);
+}
+#send-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  background-color: royalblue;
+}
+#send-btn:active {
+  transform: scale(0.9);
+}
+.msg {
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 75%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+  border-radius: 10px;
+}
+.msg.sent {
+  float: right;
+  clear: both;
+  background: #D9FDD3;
+}
+.msg.received {
+  float: left;
+  clear: both;
+  background: #FFFFFF;
+}
