@@ -6,7 +6,7 @@ function LandingPage() {
 	return (
 		<div className="container">
 			<div className="card">
-				<h1 className="title">Welcome to Chatwave</h1>
+				<h1 className="title">Welcome to Nexora</h1>
 				<p className="subtitle">Connect with people instantly and securely.</p>
 
 				<div className="button-group">
