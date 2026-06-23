@@ -155,7 +155,7 @@ button {
 header {
   background-color: #FFFFFF;
   border-bottom: 1px solid lightgrey;
-  z-index: 4;
+  z-index: 3;
 }
 .title.dashboard {
   display: flex;
@@ -165,7 +165,7 @@ header {
   padding-bottom: 8px;
   font-size: 30px;
   font-weight: 500;
-  z-index: 5;
+  z-index: 4;
 }
 .drop-down {
   position: fixed;
@@ -253,6 +253,7 @@ header {
   height: 100dvh;
   width: 40%;
   background-color: #FFFFFF;
+  z-index: 5;
 }
 .slidebar.open {
   left: 0;
