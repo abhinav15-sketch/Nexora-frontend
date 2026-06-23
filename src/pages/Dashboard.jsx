@@ -101,7 +101,6 @@ function Dashboard() {
 	    const response = await axios.get("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {
 	      withCredentials: true
 	    })
-	    alert(reponse.data.chats)
 	    setChats(response.data.chats)
 	  } catch (err) {
 	    console.log(err)
