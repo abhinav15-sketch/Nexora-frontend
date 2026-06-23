@@ -136,22 +136,6 @@ button {
 }
 
 /* DASHBOARD */
-.settings-btn {
-	position: fixed;
-	top: 8px;
-	right: 10px;
-	width: 40px;
-	height: 40px;
-	background-color: #EDEDED;
-	font-size: 20px;
-	border: none;
-	border-radius: 20px;
-	cursor: pointer;
-	z-index: 2;
-}
-.settings-btn:active {
-  transform: scale(0.9);
-}
 header {
   position: relative;
   background-color: #FFFFFF;
@@ -166,6 +150,21 @@ header {
   padding-bottom: 8px;
   font-size: 30px;
   font-weight: 500;
+}
+.settings-btn {
+	position: fixed;
+	top: 8px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: #EDEDED;
+	font-size: 20px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.settings-btn:active {
+  transform: scale(0.9);
 }
 .drop-down {
   position: fixed;
@@ -257,6 +256,7 @@ header {
   width: 60%;
   background-color: #FFFFFF;
   z-index: 5;
+  transition: left 0.3s ease;
 }
 .slidebar.open {
   left: 0;
