@@ -1,8 +1,19 @@
-import React from "react";
+import { useEffect }, React from "react";
 import { useNavigate } from "react-router-dom"
 
 function LandingPage() {
   const navigate = useNavigate()
+  useEffect(() => {
+    const checkAuth = async () => {
+      try{
+        await axios.get(
+					"https://nexora-backend-yo2e.onrender.com/api/auth/me",
+					{ withCredentials: true }
+				)
+				navigate("/dashboard")
+      }
+    }
+  }, [])
 	return (
 		<div className="container">
 			<div className="card">
