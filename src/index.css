@@ -244,3 +244,26 @@ header {
   left: 10px;
   right: unset;
 }
+.slidebar {
+  position: fixed;
+  left: -40%;
+  height: 100dvh;
+  width: 40dvh;
+  background-color: #FFFFFF;
+}
+.slidebar.open {
+  left: 0;
+}
+.overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease;
+	z-index: 1000;
+}
+.overlay.show{
+  opacity: 1;
+  visibility: visible;
+}

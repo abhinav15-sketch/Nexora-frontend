@@ -33,6 +33,8 @@ function Dashboard() {
 	const [chats, setChats] = useState([])
   const [selectedChatId, setSelectedChatId] = useState(null)
   const [messages, setMessages] = useState([])
+  const [input, setInput] = useState("")
+  const [isSlidebarOpen, setIsSlidebarOpen] = useState(false)
   
   async function createNewChat(){
     try{
@@ -87,8 +89,6 @@ function Dashboard() {
     }
   }
   
-  const [input, setInput] = useState("")
-  
 	async function handleSend() {
 	  if (!input.trim()) {
 	    return
@@ -112,8 +112,9 @@ function Dashboard() {
             <button onClick={logoutUser}>Logout</button>
           </div>
         )}
-        <button className="settings-btn menu">☰</button>
+        <button className="settings-btn menu" onClick={()=>setIsSlidebarOpen(!isSlidebarOpen)}>☰</button>
       </header>
+      <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`} />u</div>
       <div id="msg-area">
         {messages.map((msg, index) => {
           if (msg.role === "user") {
@@ -127,6 +128,7 @@ function Dashboard() {
         <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
         <button id="send-btn" onClick={handleSend}>↑</button>
       </div>
+      <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} /></div>
     </div>
 	)
 }
