@@ -118,7 +118,8 @@ function Dashboard() {
 	    const response = await axios.get(`https://nexora-backend-yo2e.onrender.com/api/ai/chat/${chatId}`, {
 	      withCredentials: true
 	    })
-	    setMessages(response.data.messages)
+	    setMessages(response.data.chat.messages)
+	    setSelectedChatId(chatId)
 	  } catch(err) {
 	    console.log(err)
 	    alert(err, "\nSomething went wrong")
