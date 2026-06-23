@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 function LandingPage() {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const checkAuth = async () => {
       try{
@@ -12,12 +13,17 @@ function LandingPage() {
 					{ withCredentials: true }
 				)
 				navigate("/dashboard")
+				setLoading(false)
       } catch (err) {
+        setLoading(false)
         //Not logged in
       }
     }
     checkAuth()
   }, [])
+  if (loading) {
+    return <div className="title">Loding...</div>
+  }
 	return (
 		<div className="container">
 			<div className="card">
