@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeHighlight from "rehype-highlight"
+import "highlight.js/styles/github.css"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
@@ -156,7 +159,9 @@ function Dashboard() {
           if (msg.role === "user") {
             return <div key={index} className="msg sent">{msg.text}</div>
           } else {
-            return <div key={index} className="msg received"><ReactMarkdown>{msg.text}</ReactMarkdown></div>
+            return <div key={index} className="msg received"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+          	{msg.text}
+          </ReactMarkdown></div>
           }
         })}
       </div>
