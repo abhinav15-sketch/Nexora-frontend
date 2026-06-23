@@ -104,7 +104,7 @@ function Dashboard() {
 	  <div>
       <header>
         <div className="title dashboard">Nexora AI</div>
-        <button id="settings-btn" onClick={() => setShowMenu(!showMenu)}>⋮</button>
+        <button className="settings-btn" onClick={() => setShowMenu(!showMenu)}>⋮</button>
         {showMenu && (
           <div className="drop-down">
             <button>Profile</button>
@@ -112,6 +112,7 @@ function Dashboard() {
             <button onClick={logoutUser}>Logout</button>
           </div>
         )}
+        <button className="settings-btn menu">☰</button>
       </header>
       <div id="msg-area">
         {messages.map((msg, index) => {

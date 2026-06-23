@@ -133,7 +133,7 @@ html, body, #root {
 }
 
 /* DASHBOARD */
-#settings-btn {
+.settings-btn {
 	position: fixed;
 	top: 8px;
 	right: 10px;
@@ -233,4 +233,7 @@ header {
 .msg.received {
 	align-self: flex-start;
 	background: #FFFFFF;
+}
+.settings-btn.menu {
+  left: 10px;
 }
