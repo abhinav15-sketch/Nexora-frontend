@@ -97,8 +97,8 @@ function Dashboard() {
 	  if (!input.trim()) {
 	    return
 	  }
-	  await sendMessage(input)
 	  setInput("")
+	  await sendMessage(input)
 	}
 	
 	async function loadChatList() {
@@ -155,7 +155,7 @@ function Dashboard() {
           if (msg.role === "user") {
             return <div key={index} className="msg sent">{msg.text}</div>
           } else {
-            return <div key={index} className="msg received">{msg.text}</div>
+            return <div key={index} className="msg received"><ReactMarkdown>{msg.text}</ReactMarkdown></div>
           }
         })}
       </div>
