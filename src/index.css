@@ -179,13 +179,6 @@ header {
 .drop-down button:active {
   transform: scale(0.9);
 }
-#msg-area {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-  gap: 15px
-}
 #msg-input {
   position: fixed;
   bottom: 30px;
@@ -218,6 +211,14 @@ header {
 #send-btn:active {
   transform: scale(0.9);
 }
+#msg-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  gap: 15px
+}
 .msg {
   padding: 8px 12px;
   border-radius: 12px;
@@ -226,12 +227,10 @@ header {
   border-radius: 10px;
 }
 .msg.sent {
-  float: right;
-  clear: both;
-  background: #D9FDD3;
+	align-self: flex-end;
+	background: #D9FDD3;
 }
 .msg.received {
-  float: left;
-  clear: both;
-  background: #FFFFFF;
+	align-self: flex-start;
+	background: #FFFFFF;
 }
