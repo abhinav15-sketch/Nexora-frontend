@@ -243,6 +243,7 @@ header {
 .msg.received {
 	align-self: flex-start;
 	background: #FFFFFF;
+	max-width: 100%;
 }
 .settings-btn.menu {
   left: 10px;
