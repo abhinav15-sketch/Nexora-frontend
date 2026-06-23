@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
@@ -159,6 +159,9 @@ function Dashboard() {
             return <div key={index} className="msg received"><ReactMarkdown>{msg.text}</ReactMarkdown></div>
           }
         })}
+        <ReactMarkdown>
+          {"# Hello\n\n**Bold**"}
+        </ReactMarkdown>
       </div>
       
       <div>
