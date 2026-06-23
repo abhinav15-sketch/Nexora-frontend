@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 function LandingPage() {
   const navigate = useNavigate()
@@ -11,8 +12,11 @@ function LandingPage() {
 					{ withCredentials: true }
 				)
 				navigate("/dashboard")
+      } catch (err) {
+        //Not logged in
       }
     }
+    checkAuth()
   }, [])
 	return (
 		<div className="container">
