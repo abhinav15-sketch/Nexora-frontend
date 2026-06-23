@@ -153,8 +153,10 @@ button {
   transform: scale(0.9);
 }
 header {
+  position: relative;
   background-color: #FFFFFF;
   border-bottom: 1px solid lightgrey;
+  z-index: 2;
 }
 .title.dashboard {
   display: flex;
