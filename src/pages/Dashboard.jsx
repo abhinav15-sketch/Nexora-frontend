@@ -14,7 +14,7 @@ function Dashboard() {
 					"https://nexora-backend-yo2e.onrender.com/api/auth/me",
 					{ withCredentials: true }
 				)
-				await loadChats()
+				await loadChatList()
 				setLoading(false)
 			}catch (error) {
 			  navigate("/login")
@@ -98,10 +98,10 @@ function Dashboard() {
 	
 	async function loadChatList() {
 	  try{
-	    const response = axios.get("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {
+	    const response = await axios.get("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {
 	      withCredentials: true
 	    })
-	    setChats(reponse.data.chats)
+	    setChats(response.data.chats)
 	  } catch (err) {
 	    console.log(err)
 	    alert(err, "\nSomething went wrong")
