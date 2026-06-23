@@ -147,7 +147,7 @@ button {
 	border: none;
 	border-radius: 20px;
 	cursor: pointer;
-	z-index: 5;
+	z-index: 2;
 }
 .settings-btn:active {
   transform: scale(0.9);
@@ -155,7 +155,6 @@ button {
 header {
   background-color: #FFFFFF;
   border-bottom: 1px solid lightgrey;
-  z-index: 3;
 }
 .title.dashboard {
   display: flex;
@@ -165,7 +164,6 @@ header {
   padding-bottom: 8px;
   font-size: 30px;
   font-weight: 500;
-  z-index: 4;
 }
 .drop-down {
   position: fixed;
@@ -179,6 +177,7 @@ header {
   padding: 12px 6px;
   border: solid darkgrey 1px;
   border-radius: 15px;
+  z-index: 3;
 }
 .drop-down button {
   border: none;
