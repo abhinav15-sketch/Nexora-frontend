@@ -101,7 +101,7 @@ function Dashboard() {
 	    const response = axios.get("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {
 	      withCredentials: true
 	    })
-	    setChats(reponse.data.chats
+	    setChats(reponse.data.chats)
 	  } catch (err) {
 	    console.log(err)
 	    alert(err, "\nSomething went wrong")
