@@ -112,8 +112,8 @@ function Dashboard() {
             <button onClick={logoutUser}>Logout</button>
           </div>
         )}
-        <button className="settings-btn menu" onClick={()=>setIsSlidebarOpen(!isSlidebarOpen)}>☰</button>
       </header>
+      <button className="settings-btn menu" onClick={()=>setIsSlidebarOpen(!isSlidebarOpen)}>☰</button>
       <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`}></div>
       <div id="msg-area">
         {messages.map((msg, index) => {
