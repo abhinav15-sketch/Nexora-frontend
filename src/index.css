@@ -226,6 +226,7 @@ header {
   height: 100%;
   width: 100%;
   padding: 10px;
+  padding-bottom: 100px;
   gap: 15px
 }
 .msg {
@@ -257,12 +258,16 @@ header {
   background-color: #FFFFFF;
   z-index: 5;
   transition: left 0.3s ease;
+  padding: 15px;
+  padding-top: 60px;
 }
 .slidebar.open {
   left: 0;
 }
 .slidebar button {
   border: none;
+  width: 100%;
+  text-align: center;
   background-color: #FFFFFF;
   font-size: 20px;
 }
