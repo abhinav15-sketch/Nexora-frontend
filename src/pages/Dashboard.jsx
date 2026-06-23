@@ -113,11 +113,12 @@ function Dashboard() {
 	  }
 	}
 	
-	async function openChat(e) {
-	  const chatId = e.target.key
+	async function openChat(chatId) {
 	  try{
-	    const response = await axios.get(`https://nexora-backend-yo2e.onrender.com/api/ai/chat${chatId}`)
-	    setChats(response.data.messages)
+	    const response = await axios.get(`https://nexora-backend-yo2e.onrender.com/api/ai/chat/${chatId}`, {
+	      withCredentials: true
+	    })
+	    setMessages(response.data.messages)
 	  } catch(err) {
 	    console.log(err)
 	    alert(err, "\nSomething went wrong")
