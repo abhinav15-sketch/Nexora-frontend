@@ -247,7 +247,7 @@ header {
 .settings-btn.menu {
   left: 10px;
   right: unset;
-  z-index: 5;
+  z-index: 6;
 }
 .slidebar {
   position: fixed;
