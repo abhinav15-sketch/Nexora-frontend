@@ -251,9 +251,10 @@ header {
 }
 .slidebar {
   position: fixed;
-  left: -40%;
+  top: 0;
+  left: -60%;
   height: 100dvh;
-  width: 40%;
+  width: 60%;
   background-color: #FFFFFF;
   z-index: 5;
 }
