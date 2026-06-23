@@ -236,4 +236,5 @@ header {
 }
 .settings-btn.menu {
   left: 10px;
+  right: unset;
 }
