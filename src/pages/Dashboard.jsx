@@ -128,7 +128,7 @@ function Dashboard() {
         <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
         <button id="send-btn" onClick={handleSend}>↑</button>
       </div>
-      <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} onClick={()=setIsSlidebarOpen(false)}/>
+      <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} onClick={()=>setIsSlidebarOpen(false)}/>
     </div>
 	)
 }
