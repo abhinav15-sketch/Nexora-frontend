@@ -114,7 +114,7 @@ function Dashboard() {
         )}
         <button className="settings-btn menu" onClick={()=>setIsSlidebarOpen(!isSlidebarOpen)}>☰</button>
       </header>
-      <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`} /></div>
+      <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`}></div>
       <div id="msg-area">
         {messages.map((msg, index) => {
           if (msg.role === "user") {
@@ -128,7 +128,7 @@ function Dashboard() {
         <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
         <button id="send-btn" onClick={handleSend}>↑</button>
       </div>
-      <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} /></div>
+      <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} />
     </div>
 	)
 }

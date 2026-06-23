@@ -248,7 +248,7 @@ header {
   position: fixed;
   left: -40%;
   height: 100dvh;
-  width: 40dvh;
+  width: 40%;
   background-color: #FFFFFF;
 }
 .slidebar.open {
@@ -261,7 +261,6 @@ header {
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease;
-	z-index: 1000;
 }
 .overlay.show{
   opacity: 1;
