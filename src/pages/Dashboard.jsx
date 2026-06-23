@@ -8,19 +8,24 @@ function Dashboard() {
   const navigate = useNavigate()
   
 	useEffect(() => {
-		const checkAuth = async () => {
+		const init = async () => {
 			try {
 				await axios.get(
 					"https://nexora-backend-yo2e.onrender.com/api/auth/me",
 					{ withCredentials: true }
 				)
-				await loadChatList()
 				setLoading(false)
 			}catch (error) {
 			  navigate("/login")
 			}
+			try{
+			  await loadChatList()
+			}catch (err) {
+			  console.log(err)
+			  alert(err)
+			}
 		}
-		checkAuth();
+		init();
 	}, [])
 	async function logoutUser(){
     await axios.post("https://nexora-backend-yo2e.onrender.com/api/auth/logout",
@@ -103,6 +108,17 @@ function Dashboard() {
 	    })
 	    setChats(response.data.chats)
 	  } catch (err) {
+	    console.log(err)
+	    alert(err, "\nSomething went wrong")
+	  }
+	}
+	
+	async function openChat(e) {
+	  const chatId = e.target.key
+	  try{
+	    const response = await axios.get(`https://nexora-backend-yo2e.onrender.com/api/ai/chat${chatId}`)
+	    setChats(response.data.messages)
+	  } catch(err) {
 	    console.log(err)
 	    alert(err, "\nSomething went wrong")
 	  }
