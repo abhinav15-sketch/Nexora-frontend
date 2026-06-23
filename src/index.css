@@ -245,6 +245,7 @@ header {
 .settings-btn.menu {
   left: 10px;
   right: unset;
+  z-index: 5;
 }
 .slidebar {
   position: fixed;
@@ -265,6 +266,7 @@ header {
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease;
+	z-index: 4;
 }
 .overlay.show{
   opacity: 1;
