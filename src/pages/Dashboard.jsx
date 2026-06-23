@@ -5,7 +5,6 @@ import axios from "axios"
 function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [showMenu, setShowMenu] = useState(false)
-  
   const navigate = useNavigate()
   
 	useEffect(() => {
@@ -15,6 +14,7 @@ function Dashboard() {
 					"https://nexora-backend-yo2e.onrender.com/api/auth/me",
 					{ withCredentials: true }
 				)
+				await loadChats()
 				setLoading(false)
 			}catch (error) {
 			  navigate("/login")
@@ -22,13 +22,13 @@ function Dashboard() {
 		}
 		checkAuth();
 	}, [])
-	
 	async function logoutUser(){
     await axios.post("https://nexora-backend-yo2e.onrender.com/api/auth/logout",
     {},
   	{ withCredentials: true })
     navigate("/")
   }
+  
 	// AI CHAT APIS
 	const [chats, setChats] = useState([])
   const [selectedChatId, setSelectedChatId] = useState(null)
@@ -88,13 +88,24 @@ function Dashboard() {
       alert(err, "\nSomething went wrong")
     }
   }
-  
 	async function handleSend() {
 	  if (!input.trim()) {
 	    return
 	  }
 	  await sendMessage(input)
 	  setInput("")
+	}
+	
+	async function loadChatList() {
+	  try{
+	    const response = axios.get("https://nexora-backend-yo2e.onrender.com/api/ai/chat", {
+	      withCredentials: true
+	    })
+	    setChats(reponse.data.chats
+	  } catch (err) {
+	    console.log(err)
+	    alert(err, "\nSomething went wrong")
+	  }
 	}
 	
 	if (loading) {
@@ -114,7 +125,13 @@ function Dashboard() {
         )}
       </header>
       <button className="settings-btn menu" onClick={()=>setIsSlidebarOpen(!isSlidebarOpen)}>☰</button>
-      <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`}></div>
+      
+      <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`}>
+        {chats.map((chat) => {
+          return <button key={chat._id} onClick={()=>openChat(chat._id)}>{chat.title}</button>
+        })}
+      </div>
+      
       <div id="msg-area">
         {messages.map((msg, index) => {
           if (msg.role === "user") {
@@ -124,10 +141,12 @@ function Dashboard() {
           }
         })}
       </div>
+      
       <div>
         <input value={input} type="text" id="msg-input" onChange={(e) => setInput(e.target.value)}></input>
         <button id="send-btn" onClick={handleSend}>↑</button>
       </div>
+      
       <div className={`overlay ${isSlidebarOpen ? "show" : ""}`} onClick={()=>setIsSlidebarOpen(false)}/>
     </div>
 	)

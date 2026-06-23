@@ -261,6 +261,11 @@ header {
 .slidebar.open {
   left: 0;
 }
+.slidebar button {
+  border: none;
+  background-color: #FFFFFF;
+  font-size: 20px;
+}
 .overlay {
 	position: fixed;
 	inset: 0;
