@@ -259,7 +259,7 @@ header {
 	font-family: monospace;
 }
 .msg.received pre {
-	background: #343541;
+	background: #909090;
 	padding: 14px;
 	border-radius: 10px;
 	overflow-x: auto;
@@ -282,7 +282,7 @@ header {
 	white-space: nowrap;
 }
 .msg.received th {
-	background: #2b2b2b;
+	background: #FAFAFA;
 }
 /*Slidebar*/
 .settings-btn.menu {
