@@ -240,11 +240,51 @@ header {
 	align-self: flex-end;
 	background: #D9FDD3;
 }
+/*AI message*/
 .msg.received {
-	align-self: flex-start;
-	background: #FFFFFF;
-	max-width: 85%;
+	max-width: 80%;
+	padding: 12px 16px;
+	border-radius: 16px;
+	background: #1e1e1e;
+	color: #f5f5f5;
+	line-height: 1.5;
+	font-size: 15px;
+	overflow-wrap: anywhere;
+	overflow-x: auto;
 }
+.msg.received code {
+	background: #2b2b2b;
+	padding: 2px 6px;
+	border-radius: 5px;
+	font-family: monospace;
+}
+.msg.received pre {
+	background: #111;
+	padding: 14px;
+	border-radius: 10px;
+	overflow-x: auto;
+}
+.msg.received pre code {
+	background: transparent;
+}
+.msg.received table {
+	width: 100%;
+	border-collapse: collapse;
+	display: block;
+	overflow-x: auto;
+	margin: 14px 0;
+}
+.msg.received th,
+.msg.received td {
+	border: 1px solid #555;
+	padding: 8px 12px;
+	text-align: left;
+	white-space: nowrap;
+}
+.msg.received th {
+	background: #2b2b2b;
+}
+/*Slidebar*/
 .settings-btn.menu {
   left: 10px;
   right: unset;
