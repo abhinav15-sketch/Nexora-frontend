@@ -259,7 +259,7 @@ header {
 	font-family: monospace;
 }
 .msg.received pre {
-	background: #909090;
+	background: #E8E8E8;
 	padding: 14px;
 	border-radius: 10px;
 	overflow-x: auto;
