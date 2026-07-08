@@ -23,7 +23,7 @@ function LandingPage() {
   }, [])
   if (loading) {
     return(
-      <div className="loading-screen">
+      <div className="loading-screen whitebg">
 		  	<div className="loader"></div>
 			</div>
     )

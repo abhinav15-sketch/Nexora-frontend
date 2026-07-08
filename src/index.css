@@ -20,8 +20,11 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #ffffff;
+	background-color: transparent;
 	z-index: 9999;
+}
+.loading-screen.whitebg {
+  background-color: #FFFFFF;
 }
 .loader {
 	width: 40px;
