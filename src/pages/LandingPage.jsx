@@ -4,6 +4,7 @@ import axios from "axios"
 
 function LandingPage() {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const checkAuth = async () => {
       try{
@@ -20,7 +21,13 @@ function LandingPage() {
     }
     checkAuth()
   }, [])
-  
+  if (loading) {
+    return(
+      <div className="loading-screen">
+		  	<div className="loader"></di]v>
+			</div>
+    )
+  }
 	return (
 		<div className="container">
 			<div className="card">
