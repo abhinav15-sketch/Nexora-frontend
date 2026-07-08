@@ -26,7 +26,7 @@ function Dashboard() {
 			  await loadChatList()
 			}catch (err) {
 			  console.log(err)
-			  alert(err)
+			  alert("Something went wrong")
 			}
 		}
 		init();
@@ -57,7 +57,7 @@ function Dashboard() {
       return chatId
     } catch (err){
       console.error(err)
-      alert(err,"\nSomething went wrong")
+      alert("Something went wrong")
     }
   }
   
@@ -94,7 +94,7 @@ function Dashboard() {
       }))
     } catch (err) {
       console.error(err)
-      alert(err, "\nSomething went wrong")
+      alert("Something went wrong")
     }
   }
 	async function handleSend() {
@@ -113,7 +113,7 @@ function Dashboard() {
 	    setChats(response.data.chats)
 	  } catch (err) {
 	    console.log(err)
-	    alert(err, "\nSomething went wrong")
+	    alert("Something went wrong")
 	  }
 	}
 	
@@ -126,7 +126,7 @@ function Dashboard() {
 	    setSelectedChatId(chatId)
 	  } catch(err) {
 	    console.log(err)
-	    alert(err, "\nSomething went wrong")
+	    alert("Something went wrong")
 	  }
 	}
 	
