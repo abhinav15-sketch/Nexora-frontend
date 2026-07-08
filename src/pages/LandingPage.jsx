@@ -24,7 +24,7 @@ function LandingPage() {
   if (loading) {
     return(
       <div className="loading-screen">
-		  	<div className="loader"></di]v>
+		  	<div className="loader"></div>
 			</div>
     )
   }
