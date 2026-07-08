@@ -131,7 +131,11 @@ function Dashboard() {
 	}
 	
 	if (loading) {
-	  return <div></div>
+	  return(
+	    <div className="loading-screen">
+		  	<div className="loader"></div>
+			</div>
+	 )
   }
 	return (
 	  <div>
@@ -150,7 +154,7 @@ function Dashboard() {
       
       <div className={`slidebar ${isSlidebarOpen ? "open" : ""}`}>
         {chats.map((chat) => {
-          return <button key={chat._id} onClick={()=>openChat(chat._id)}>{chat.title}</button>
+          return <div key={chat._id} onClick={()=>openChat(chat._id)}>{chat.title}</div>
         })}
       </div>
       

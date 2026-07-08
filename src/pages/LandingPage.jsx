@@ -22,7 +22,11 @@ function LandingPage() {
     checkAuth()
   }, [])
   if (loading) {
-    return <div></div>
+    return(
+      <div className="loading-screen">
+		  	<div className="loader"></div>
+			</div>
+		)
   }
 	return (
 		<div className="container">
