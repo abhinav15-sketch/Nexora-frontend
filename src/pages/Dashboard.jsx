@@ -21,6 +21,7 @@ function Dashboard() {
 				setLoading(false)
 			}catch (error) {
 			  navigate("/login")
+			  return
 			}
 			try{
 			  await loadChatList()
