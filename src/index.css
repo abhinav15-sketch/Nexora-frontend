@@ -329,7 +329,7 @@ header {
 .slidebar.open {
   left: 0;
 }
-.slidebar button {
+.slidebar div {
   border: none;
   width: 100%;
   text-align: center;
